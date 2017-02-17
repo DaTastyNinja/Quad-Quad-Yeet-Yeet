@@ -73,7 +73,8 @@ function QF() {
   context.beginPath();
   context.arc(w/2+c*k,h/2-c*k,5,0,6.28);
   context.fill();
-  solutions();
+  $("#answers").hide();
+  $("#answers").fadeIn(1000);
   resetCanvas();
 }  // close QF
 
@@ -95,8 +96,6 @@ function results() {
 function solutions() {
 // qudratic formula
 context.fillStyle="blue";
-$("#answers").hide();
-$("#answers").fadeIn(1000);
 d = Math.pow(b*1,2)-4*a*c;
 x1=((-b*1)+(d**.5))/2*a
 x2=((-b*1)-(d**.5))/2*a
@@ -134,13 +133,14 @@ function graphQuad () {
     context.moveTo(w/2+x*k, h/2-y*k);
     context.lineTo(w/2+nx*k, h/2-ny*k);
     context.stroke();
-  }
+}
+
 }  // close graphQuad
 
 function doMouseMove(event) {
     // always know where ther mouse is located
   resetCanvas();
-  context.fillStyle="orange";
+  context.fillStyle="black";
   mouseX = event.clientX-offsetX;
   mouseY = event.clientY-offsetY;
   pointX = (mouseX-w/2)/k;
