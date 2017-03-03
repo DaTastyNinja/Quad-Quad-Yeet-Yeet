@@ -91,14 +91,30 @@ function results() {
   $("#vertex").text("Vertex is at (" + vX+","+vY+")");
   $("#yInt").text("Y-intercept is at ("+c+")")
   $("#vertexForm").text("Vertex form is y="+a+"(x- "+vX+")^2+"+vY);
+
+  //yInt point
+  context.fillStyle="pink";
+  context.beginPath();
+  context.arc(w/2,h/2-c*k,5,0,6.28);
+  context.fill();
+
+  //symLine
+  context.strokeStyle="white";
+  context.setLineDash([5,10]);
+  context.beginPath();
+  context.moveTo(w/2+vX*k,5);
+  context.lineTo(w/2+vX*k,h-5);
+  context.stroke();
+  context.setLineDash([0]);
+
 }  // close results()
 
 function solutions() {
 // qudratic formula
 context.fillStyle="blue";
 d = Math.pow(b*1,2)-4*a*c;
-x1=((-b*1)+(d**.5))/2*a
-x2=((-b*1)-(d**.5))/2*a
+x1=((-b*1)+(d**.5))/(2*a);
+x2=((-b*1)-(d**.5))/(2*a);
 context.beginPath();
 context.arc(w/2+x1*k,h/2,5,0,6.28);
 context.fill();
@@ -129,7 +145,7 @@ function graphQuad () {
     ny =  c*1+b*nx+a*Math.pow(nx,2);
     context.beginPath();
     context.lineWidth = 2;
-    context.strokeStyle = "Red";
+    context.strokeStyle = "#808080";
     context.moveTo(w/2+x*k, h/2-y*k);
     context.lineTo(w/2+nx*k, h/2-ny*k);
     context.stroke();
